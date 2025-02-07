@@ -29,8 +29,8 @@ public class ContactRepository : IContactRepository
         }
     }
 
-    public Task<Contact> GetByIdAsync(int id)
+    public async Task<Contact> GetByIdAsync(int id)
     {
-        throw new System.NotImplementedException();
+        return await _context.Contacts.FindAsync(id);
     }
 }

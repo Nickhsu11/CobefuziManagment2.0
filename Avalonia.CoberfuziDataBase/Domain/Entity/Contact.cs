@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Contact
 {
     
-    [Required]
+    [Key]
     public int ContactID { get; set; }
     
     public string FirstName { get; set; }
