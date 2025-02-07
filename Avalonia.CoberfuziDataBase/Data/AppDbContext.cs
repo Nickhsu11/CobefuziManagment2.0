@@ -28,18 +28,39 @@ public class AppDbContext : DbContext
         PDFfileModelSeed(modelBuilder);
         LocationRealModelSeed(modelBuilder);
     }
-
-    // Function that contains the connections of CONTACT
+    
+    private void EntityModelSeed(ModelBuilder modelBuilder)
+    {
+        // Defines that the Entity is the key
+        modelBuilder.Entity<Entity>()
+            .HasKey(e => e.EntityID);
+        
+        // Defines that each entity has many Contacts
+        modelBuilder.Entity<Entity>()
+            .HasMany(e => e.ContactList)
+            .WithOne(e => e.Entity)
+            .HasForeignKey(e => e.EntityID);
+        
+    }
+    
     private void ContactModelSeed(ModelBuilder modelBuilder)
     {
+        
+        // Defines that the Contact is the Key
         modelBuilder.Entity<Contact>()
-            .HasIndex(c => c.ContactID)
-            .IsUnique();
+            .HasKey(e => e.EntityID);
 
+        // Defines that each Contact has an unique Phone Number
         modelBuilder.Entity<Contact>()
             .HasIndex(c => c.PhoneNumber)
             .IsUnique();
-        
+
+        // Defines that each Contact has only one Entity
+        modelBuilder.Entity<Contact>()
+            .HasOne(c => c.Entity)
+            .WithMany(e => e.ContactList)
+            .HasForeignKey(c => c.EntityID);
+
     }
     
     // Function that contains the connections of PDFfile
