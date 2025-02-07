@@ -12,4 +12,6 @@ public class PDFfile
     
     public byte[] PDFFileContent { get; set; }
     
+    public Project Project { get; set; }
+    
 }
