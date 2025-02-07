@@ -3,11 +3,9 @@ using Avalonia.CoberfuziDataBase.Domain.Entity;
 
 namespace Avalonia.CoberfuziDataBase.Data.Repository.Interface;
 
-public interface IEntityRepository<T> where T : Entity
+public interface IClientRepository : IEntityRepository<Client>
 {
     
-    Task AddAsync(T entity);
-    
-    Task<T> GetByIdAsync(int id);
+    Task<Client> GetClientByIdAsync(int clientId);
     
 }

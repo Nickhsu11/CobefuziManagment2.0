@@ -21,6 +21,10 @@ public class Project
 
     public ICollection<PDFfile> WorkSheet { get; set; } = new List<PDFfile>();
     
+    public int SiteResponsibleID { get; set; }
     public Contact SiteResponsible { get; set; }
+    
+    public int ClientID { get; set; }
+    public Client client { get; set; }
     
 }

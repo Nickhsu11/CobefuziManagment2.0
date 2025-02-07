@@ -16,4 +16,8 @@ public class Contact
     
     public string Email { get; set; }
     
+    public int EntityID { get; set; }
+    
+    public Entity Entity { get; set; }
+    
 }

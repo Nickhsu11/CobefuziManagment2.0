@@ -8,6 +8,14 @@ public class AppDbContext : DbContext
     
     public DbSet<Contact> Contacts { get; set; }
     
+    public DbSet<LocationReal> Locations { get; set; }
+    
+    public DbSet<PDFfile> PDFfiles { get; set; }
+    
+    public DbSet<Project> Projects { get; set; }
+    
+    public DbSet<Client> Clients { get; set; }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=app.db");
@@ -31,6 +39,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Contact>()
             .HasIndex(c => c.PhoneNumber)
             .IsUnique();
+        
     }
     
     // Function that contains the connections of PDFfile

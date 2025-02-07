@@ -22,5 +22,6 @@ public class LocationReal
     
     public string PostCode { get; set; }
     
+    public Project ProjectID { get; set; }
     public Project Project { get; set; }
 }

@@ -3,11 +3,12 @@ using Avalonia.CoberfuziDataBase.Domain.Entity;
 
 namespace Avalonia.CoberfuziDataBase.Data.Repository.Interface;
 
-public interface IEntityRepository<T> where T : Entity
+public interface ILocationRealRepository
 {
     
-    Task AddAsync(T entity);
+        
+    Task AddAsync (LocationReal locationReal);
     
-    Task<T> GetByIdAsync(int id);
+    Task<LocationReal> GetByIdAsync(int locationrealid);
     
 }
